@@ -5,7 +5,7 @@
     "singularName": "container",
     "pluralName": "containers",
     "displayName": "Container",
-    "description": "Справочник контейнеров (карточки + детальная страница)"
+    "description": "Container reference (cards and detail page)"
   },
   "options": {
     "draftAndPublish": true

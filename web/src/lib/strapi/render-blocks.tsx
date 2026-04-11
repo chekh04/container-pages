@@ -3,7 +3,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-/** JSON полей `blocks` из Strapi 5 (REST). */
 export type StrapiBlocksJson = Record<string, unknown>[] | null | undefined;
 
 type BlockNode = Record<string, unknown>;
@@ -67,7 +66,6 @@ function LinkOrA({
   );
 }
 
-/** Только text/link (внутри ссылки Strapi не вкладывает блоки). */
 function renderInlineOnly(children: unknown): ReactNode {
   if (!Array.isArray(children)) return null;
   return children.map((child, i) => {

@@ -2,9 +2,8 @@ import path from "path";
 import type { Core } from "@strapi/strapi";
 
 /**
- * Путь к SQLite должен быть вне `dist/`: при сборке `__dirname` указывает на
- * `dist/config`, и `../.tmp/data.db` превращался в `dist/.tmp/data.db` — оттуда
- * типичная ошибка «readonly database» и потеря БД при очистке dist.
+ * Keep SQLite outside `dist/`: after build `__dirname` is under `dist/config`,
+ * so `../.tmp/data.db` would land in `dist/.tmp` (readonly DB / lost on dist clean).
  */
 const config = ({
   env,

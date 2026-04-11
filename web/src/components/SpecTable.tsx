@@ -4,7 +4,6 @@ type Props = {
   rows: Row[];
 };
 
-/** Секция деталей: «название — значение», по одному на строку. */
 export function DimensionList({ rows }: Props) {
   const visible = rows.filter((r) => r.value?.trim());
   if (!visible.length) return null;

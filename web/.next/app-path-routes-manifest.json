@@ -1,0 +1,9 @@
+{
+  "/api/revalidate/route": "/api/revalidate",
+  "/sitemap.xml/route": "/sitemap.xml",
+  "/robots.txt/route": "/robots.txt",
+  "/_not-found/page": "/_not-found",
+  "/page": "/",
+  "/reference/container/[slug]/page": "/reference/container/[slug]",
+  "/reference/container/page": "/reference/container"
+}

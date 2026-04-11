@@ -48,10 +48,10 @@ export function siteMetadata(): Metadata {
   return {
     metadataBase: new URL(siteUrl),
     title: {
-      default: "Справочник контейнеров",
-      template: "%s · Справочник контейнеров",
+      default: "Container reference",
+      template: "%s · Container reference",
     },
     description:
-      "Типы и размеры морских контейнеров: стандартные, рефрижераторы и др.",
+      "Shipping container types and dimensions: standard, refrigerated, and more.",
   };
 }

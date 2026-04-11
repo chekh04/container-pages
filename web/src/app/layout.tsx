@@ -4,7 +4,7 @@ import "./globals.css";
 import { siteMetadata } from "@/lib/seo/metadata";
 
 const inter = Inter({
-  subsets: ["latin", "cyrillic", "cyrillic-ext"],
+  subsets: ["latin"],
   variable: "--font-sans",
 });
 
@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
+    <html lang="en">
       <body
         className={`${inter.variable} min-h-screen bg-zinc-50 font-sans antialiased text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50`}
       >

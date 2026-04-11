@@ -1,12 +1,10 @@
 import type { StrapiBlocksJson } from "@/lib/strapi/render-blocks";
 
-/** Ответ Strapi 5 REST для одной записи */
 export type StrapiSingle<T> = {
   data: T | null;
   meta?: Record<string, unknown>;
 };
 
-/** Ответ Strapi 5 REST для списка */
 export type StrapiCollection<T> = {
   data: T[];
   meta?: {

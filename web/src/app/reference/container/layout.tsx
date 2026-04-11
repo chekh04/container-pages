@@ -23,7 +23,7 @@ export default async function ReferenceContainerLayout({
           href="/"
           className="text-sm text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200"
         >
-          На главную
+          Home
         </Link>
         <span className="text-zinc-300 dark:text-zinc-600" aria-hidden>
           /
@@ -32,7 +32,7 @@ export default async function ReferenceContainerLayout({
           href="/reference/container"
           className="text-sm font-medium text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200"
         >
-          Справочник контейнеров
+            Container reference
         </Link>
       </header>
 

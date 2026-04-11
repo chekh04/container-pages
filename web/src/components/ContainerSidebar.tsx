@@ -14,9 +14,9 @@ export function ContainerSidebar({ items }: Props) {
 
   return (
     <aside className="w-full shrink-0 md:w-56">
-      <nav aria-label="Типы контейнеров" className="sticky top-6">
+      <nav aria-label="Container types" className="sticky top-6">
         <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-zinc-500">
-          Контейнеры
+          Containers
         </p>
         <ul className="space-y-1 border-l border-zinc-200 pl-3 dark:border-zinc-700">
           {items.map((item) => {

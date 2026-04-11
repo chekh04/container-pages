@@ -1,6 +1,5 @@
 import type { StrapiMedia } from "./types";
 
-/** Абсолютный URL картинки Strapi (плоский или вложенный ответ). */
 export function pickMediaUrl(
   media: StrapiMedia | null | undefined,
 ): string | undefined {
@@ -15,7 +14,6 @@ export function pickMediaUrl(
   return typeof fmt === "string" ? fmt : undefined;
 }
 
-/** Несколько медиа: плоский массив или `{ data: [...] }` (Strapi 4/5). */
 export function pickMediaList(
   media:
     | StrapiMedia[]

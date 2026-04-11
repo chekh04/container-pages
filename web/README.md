@@ -1,19 +1,19 @@
-# Next.js (публичный сайт)
+# Next.js (public site)
 
-Скопируйте `.env.local.example` в `.env.local` и укажите URL Strapi и API-токен (см. корневой `README.md`).
+Copy `.env.local.example` to `.env.local` and set the Strapi URL and API token (see root `README.md`).
 
-### Почему в браузере нет запросов к Strapi
+### Why the browser Network tab shows no Strapi requests
 
-Страницы справочника рендерятся на **сервере** Next (React Server Components). Запросы к `http://localhost:1337/api/...` делает **процесс Node с Next**, а не вкладка Chrome — поэтому в **Network** у страницы вы увидите только запросы к `localhost:3000`, без `1337`.
+Reference pages are rendered on the **Next.js server** (React Server Components). Requests to `http://localhost:1337/api/...` are made by the **Next Node process**, not the browser tab — so in **Network** you only see `localhost:3000`, not `1337`.
 
-Чтобы убедиться, что Next ходит в Strapi: смотрите **терминал Strapi** (там появятся `GET /api/containers`) или добавьте в `.env.local` строку `DEBUG_STRAPI=1` и смотрите **терминал Next** (`npm run dev` для `web`) — появятся строки `[Strapi] GET http://...`.
+To verify Next is calling Strapi: watch the **Strapi terminal** (`GET /api/containers`) or add `DEBUG_STRAPI=1` to `.env.local` and check the **Next terminal** (`npm run dev` for `web`) for `[Strapi] GET http://...`.
 
-Публичные маршруты:
+Public routes:
 
-- `/` — заглушка;
-- `/reference/container` — список (ISR, `revalidate: 60`);
-- `/reference/container/[slug]` — карточка контейнера;
-- `/sitemap.xml`, `/robots.txt` — SEO;
-- `POST /api/revalidate` — on-demand revalidation (секрет в заголовке `x-revalidate-secret`).
+- `/` — landing stub
+- `/reference/container` — list (ISR, `revalidate: 60`)
+- `/reference/container/[slug]` — container detail
+- `/sitemap.xml`, `/robots.txt` — SEO
+- `POST /api/revalidate` — on-demand revalidation (secret in `x-revalidate-secret` header)
 
-Для картинок из Strapi добавьте в `next.config.ts` свой `hostname` в `images.remotePatterns` (продакшен-домен CMS).
+For Strapi images, add your CMS hostname to `images.remotePatterns` in `next.config.ts` for production.

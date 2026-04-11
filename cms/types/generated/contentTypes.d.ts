@@ -433,7 +433,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiContainerContainer extends Struct.CollectionTypeSchema {
   collectionName: 'containers';
   info: {
-    description: '\u0421\u043F\u0440\u0430\u0432\u043E\u0447\u043D\u0438\u043A \u043A\u043E\u043D\u0442\u0435\u0439\u043D\u0435\u0440\u043E\u0432 (\u043A\u0430\u0440\u0442\u043E\u0447\u043A\u0438 + \u0434\u0435\u0442\u0430\u043B\u044C\u043D\u0430\u044F \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0430)';
+    description: 'Container reference (cards and detail page)';
     displayName: 'Container';
     pluralName: 'containers';
     singularName: 'container';

@@ -3,7 +3,6 @@ import type { ContainerEntity, StrapiCollection } from "./types";
 const STRAPI_URL = process.env.STRAPI_URL ?? process.env.NEXT_PUBLIC_STRAPI_URL;
 const STRAPI_TOKEN = process.env.STRAPI_API_TOKEN;
 
-/** Логи в терминале процесса Next (`npm run dev`), не в DevTools браузера. */
 function strapiLoggingEnabled() {
   if (process.env.STRAPI_LOGGING === "0") return false;
   return (
@@ -37,7 +36,7 @@ function logStrapiError(url: string, status: number, body: string) {
   console.error(`[Strapi] ← ${status}`, { url, body: body.slice(0, 1200) });
   if (status === 403) {
     console.error(
-      "[Strapi] 403 Forbidden: Settings → Users & Permissions → Roles → Public → Container → включите find и findOne (и upload find для картинок).",
+      "[Strapi] 403 Forbidden: enable find and findOne for Container (and upload find for images) under Settings → Users & Permissions → Roles → Public.",
     );
   }
 }
@@ -82,7 +81,6 @@ function containersQuery(extra: Record<string, string> = {}) {
   return qs.toString();
 }
 
-/** Список для сайдбара и сетки: все опубликованные записи, по алфавиту `containerName`. */
 export async function getContainersForNav(): Promise<ContainerEntity[]> {
   const qs = containersQuery();
   const data = await strapiFetch<StrapiCollection<ContainerEntity>>(
@@ -92,7 +90,6 @@ export async function getContainersForNav(): Promise<ContainerEntity[]> {
   return data.data ?? [];
 }
 
-/** Все опубликованные записи (sitemap, static params) */
 export async function getAllContainers(): Promise<ContainerEntity[]> {
   const qs = containersQuery({
     "pagination[pageSize]": "100",
