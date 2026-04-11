@@ -1,0 +1,37 @@
+# Dependencies
+node_modules
+**/node_modules
+
+# Next.js
+.next
+**/.next
+out
+
+# Strapi
+apps/cms/.tmp
+apps/cms/.cache
+apps/cms/build
+apps/cms/dist
+apps/cms/.strapi-updater.json
+apps/cms/license.txt
+apps/cms/exports
+apps/cms/public/uploads/*
+!apps/cms/public/uploads/.gitkeep
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+!**/.env.example
+apps/cms/.env
+apps/web/.env.local
+
+# DB / logs
+*.sqlite
+*.db
+*.log
+npm-debug.log*
+
+# OS / tooling
+.DS_Store
+.turbo
