@@ -1,0 +1,82 @@
+{
+    "kind": "collectionType",
+    "collectionName": "containers",
+    "info": {
+        "singularName": "container",
+        "pluralName": "containers",
+        "displayName": "Container",
+        "description": "Справочник контейнеров (карточки + детальная страница)"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "containerName": {
+            "type": "string",
+            "required": true
+        },
+        "slug": {
+            "type": "uid",
+            "targetField": "containerName",
+            "required": true
+        },
+        "containerDetailsPageTitle": {
+            "type": "string",
+            "required": true
+        },
+        "containerImage": {
+            "type": "media",
+            "multiple": false,
+            "required": true,
+            "allowedTypes": ["images"]
+        },
+        "insideLength": {
+            "type": "string"
+        },
+        "insideWidth": {
+            "type": "string"
+        },
+        "insideHeight": {
+            "type": "string"
+        },
+        "doorWidth": {
+            "type": "string"
+        },
+        "doorHeight": {
+            "type": "string"
+        },
+        "capacity": {
+            "type": "string"
+        },
+        "tareWeight": {
+            "type": "string"
+        },
+        "maxCargoWeight": {
+            "type": "string"
+        },
+        "containerDescription": {
+            "type": "blocks"
+        },
+        "figures": {
+            "type": "media",
+            "multiple": true,
+            "required": false,
+            "allowedTypes": ["images"]
+        },
+        "usage": {
+            "type": "blocks"
+        },
+        "seoTitle": {
+            "type": "string",
+            "required": true
+        },
+        "seoDescription": {
+            "type": "text",
+            "required": true
+        },
+        "learnMoreLabel": {
+            "type": "string"
+        }
+    }
+}

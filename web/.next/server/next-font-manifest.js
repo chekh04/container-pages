@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{\"/Users/sashachekh/Desktop/container-pages/apps/web/src/app/layout\":[\"static/media/ba9851c3c22cd980-s.p.woff2\",\"static/media/21350d82a1f187e9-s.p.woff2\",\"static/media/e4af272ccee01ff0-s.p.woff2\"]},\"appUsingSizeAdjust\":true,\"pagesUsingSizeAdjust\":false}"
