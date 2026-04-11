@@ -21,11 +21,6 @@
       "static/chunks/main-app.js",
       "static/chunks/app/reference/container/[slug]/page.js"
     ],
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
-    ],
     "/reference/container/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",

@@ -2,12 +2,37 @@ import path from "path";
 import type { Core } from "@strapi/strapi";
 
 /**
- * Keep SQLite outside `dist/`: after build `__dirname` is under `dist/config`,
- * so `../.tmp/data.db` would land in `dist/.tmp` (readonly DB / lost on dist clean).
+ * - Local dev: SQLite file (DATABASE_FILENAME), same as before.
+ * - Production: set DATABASE_URL (PostgreSQL). Data lives in the DB service, not on the app disk,
+ *   so redeploys do not wipe content. Use Neon, Supabase, Render Postgres, etc.
  */
-const config = ({
+export default ({
   env,
-}: Core.Config.Shared.ConfigParams): Core.Config.Database<"sqlite"> => {
+}: Core.Config.Shared.ConfigParams) => {
+  const databaseUrl = env("DATABASE_URL");
+
+  if (databaseUrl) {
+    const useSsl = env.bool("DATABASE_SSL", false);
+    return {
+      connection: {
+        client: "postgres" as const,
+        connection: {
+          connectionString: databaseUrl,
+          ...(useSsl
+            ? {
+                ssl: {
+                  rejectUnauthorized: env.bool(
+                    "DATABASE_SSL_REJECT_UNAUTHORIZED",
+                    false,
+                  ),
+                },
+              }
+            : {}),
+        },
+      },
+    };
+  }
+
   const raw = env("DATABASE_FILENAME", ".tmp/data.db");
   const filename = path.isAbsolute(raw)
     ? raw
@@ -15,7 +40,7 @@ const config = ({
 
   return {
     connection: {
-      client: "sqlite",
+      client: "sqlite" as const,
       connection: {
         filename,
       },
@@ -23,5 +48,3 @@ const config = ({
     },
   };
 };
-
-export default config;

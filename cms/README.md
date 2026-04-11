@@ -20,6 +20,24 @@ All published containers appear in the list and sidebar; order on the site is by
 
 After schema changes, restart Strapi and **recreate entries** (or run a DB migration) if old fields no longer match.
 
+## Database (keep data after redeploy)
+
+- **Local (default):** SQLite file via `DATABASE_FILENAME` (e.g. `.tmp/data.db`). OK for development.
+- **Deploy:** Use **PostgreSQL** with `DATABASE_URL`. The DB runs on [Neon](https://neon.tech), [Supabase](https://supabase.com), Render Postgres, Railway, etc. Content is stored **outside** the Strapi container, so **redeploys do not wipe the database**.
+
+Example env:
+
+```env
+DATABASE_URL=postgresql://USER:PASSWORD@HOST:5432/DATABASE?sslmode=require
+DATABASE_SSL=true
+```
+
+Omit `DATABASE_URL` to keep using SQLite locally.
+
+**First deploy to Postgres:** point Strapi at an **empty** database; Strapi creates tables on startup. **Moving data from SQLite:** use Strapi **Transfer** (Settings) or re-create entries — there is no automatic in-place migration in this repo.
+
+**Media:** `public/uploads` still lives on the server disk unless you add S3 (or similar) or a persistent volume; only the **SQL data** is guaranteed persistent with hosted Postgres.
+
 ### Lists in the admin (Bulleted / Numbered appear disabled)
 
 In the **Blocks** editor, bulleted and numbered list toolbar buttons are **grey** when the selection spans **multiple blocks** (multiple paragraphs). The editor only applies lists to text **inside one** paragraph.
