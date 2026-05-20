@@ -1,13 +1,21 @@
 node_modules
 .git
 .gitignore
-.next
-**/.tmp
-**/dist
-apps/cms/build
-apps/web/.next
 *.log
-.env
-.env.*
-!.env.example
-!**/.env.example
+.DS_Store
+
+# web
+web/node_modules
+web/.next
+web/.env*
+
+# cms
+cms/node_modules
+cms/dist
+cms/build
+cms/.tmp
+cms/.cache
+cms/exports
+cms/public/uploads/*
+cms/.env
+cms/.env.*

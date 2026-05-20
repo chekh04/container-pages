@@ -1,18 +1,15 @@
 {
   "name": "container-pages",
   "private": true,
-  "workspaces": [
-    "apps/*"
-  ],
   "scripts": {
-    "dev": "npm run dev --workspace=web",
-    "dev:web": "npm run dev --workspace=web",
-    "dev:cms": "npm run develop --workspace=cms",
-    "build": "npm run build --workspace=web && npm run build --workspace=cms",
-    "build:web": "npm run build --workspace=web",
-    "build:cms": "npm run build --workspace=cms",
-    "start:web": "npm run start --workspace=web",
-    "start:cms": "npm run start --workspace=cms"
+    "dev": "npm run dev --prefix web",
+    "dev:web": "npm run dev --prefix web",
+    "dev:cms": "npm run develop --prefix cms",
+    "build": "npm run build --prefix web && npm run build --prefix cms",
+    "build:web": "npm run build --prefix web",
+    "build:cms": "npm run build --prefix cms",
+    "start:web": "npm run start --prefix web",
+    "start:cms": "npm run start --prefix cms"
   },
   "engines": {
     "node": ">=18.18.0"

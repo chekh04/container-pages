@@ -42,6 +42,7 @@ function strapiUploadPatterns(): NonNullable<
 }
 
 const nextConfig: NextConfig = {
+  output: "standalone",
   images: {
     remotePatterns: strapiUploadPatterns(),
   },

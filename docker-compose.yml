@@ -1,0 +1,29 @@
+services:
+  cms:
+    build:
+      context: ./cms
+    ports:
+      - "1337:1337"
+    env_file: ./cms/.env
+    volumes:
+      - cms_db:/app/.tmp
+      - ./cms/public/uploads:/app/public/uploads
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./web
+      args:
+        - NEXT_PUBLIC_STRAPI_URL
+        - NEXT_PUBLIC_SITE_URL
+    ports:
+      - "3000:3000"
+    env_file: ./web/.env
+    environment:
+      STRAPI_URL: http://cms:1337
+    depends_on:
+      - cms
+    restart: unless-stopped
+
+volumes:
+  cms_db:

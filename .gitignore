@@ -8,15 +8,15 @@ node_modules
 out
 
 # Strapi
-apps/cms/.tmp
-apps/cms/.cache
-apps/cms/build
-apps/cms/dist
-apps/cms/.strapi-updater.json
-apps/cms/license.txt
-apps/cms/exports
-apps/cms/public/uploads/*
-!apps/cms/public/uploads/.gitkeep
+cms/.tmp
+cms/.cache
+cms/build
+cms/dist
+cms/.strapi-updater.json
+cms/license.txt
+cms/exports
+cms/public/uploads/*
+!cms/public/uploads/.gitkeep
 
 # Env & secrets
 .env
@@ -25,8 +25,8 @@ apps/cms/public/uploads/*
 !**/.env.example
 !.env.local.example
 !**/.env.local.example
-apps/cms/.env
-apps/web/.env.local
+cms/.env
+web/.env.local
 
 # DB / logs
 *.sqlite
