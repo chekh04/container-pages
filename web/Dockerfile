@@ -11,11 +11,6 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-ARG NEXT_PUBLIC_STRAPI_URL
-ARG NEXT_PUBLIC_SITE_URL
-ENV NEXT_PUBLIC_STRAPI_URL=$NEXT_PUBLIC_STRAPI_URL
-ENV NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL
-
 RUN npm run build && mkdir -p public
 
 FROM base AS runner

@@ -13,9 +13,6 @@ services:
   web:
     build:
       context: ./web
-      args:
-        - NEXT_PUBLIC_STRAPI_URL
-        - NEXT_PUBLIC_SITE_URL
     ports:
       - "3000:3000"
     env_file: ./web/.env
